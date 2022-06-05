@@ -38,6 +38,8 @@ start_service() {
 	procd_set_param env v2ray.local.asset="$datadir"
 	[ "$memconservative" -eq "1" ] && procd_append_param env V2RAY_CONF_GEOLOADER="memconservative"
 	procd_append_param env V2RAY_VMESS_AEAD_DISABLED=true
+	procd_append_param env V2RAY_VMESS_AEAD_FORCE=false
+
 	procd_set_param file $conffiles
 
 	procd_set_param stdout 1
